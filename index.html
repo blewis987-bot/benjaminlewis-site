@@ -1,20 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Benjamin Lewis</title>
-  <meta name="description" content="Personal systems, tools, and writing." />
+
+  <!-- We will add style.css next. This link is safe to add now. -->
+  <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-  <main style="max-width:700px;margin:3rem auto;font-family:system-ui,sans-serif;line-height:1.6;">
-    <h1>Benjamin Lewis</h1>
-
-    <p>Personal systems, tools, and writing about work, technology, and agency.</p>
-
-    <p>
+  <header class="wrap">
+    <nav>
+      <a href="/">Home</a>
       <a href="/start-here">Start here</a>
-    </p>
-  </main>
-</body>
-</html>
+      <a href="/about">About</a>
+      <a href="/work">Work</a>
+      <a href="/products">Products</a>
+    </nav>
+  </header>
 
+  <main class="wrap">
+    <h1>Benjamin Lewis</h1>
+    <p class="muted">
+      I build practical, trust-first tools for navigating modern work and digital complexity.
+    </p>
+
+    <section class="card">
+      <h2>Start here</h2>
+      <p>
+        New to the site? Begin with <a href="/start-here">Start here</a>.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>What I’m building</h2>
+      <p>
+        A small, stable library of tools and writing, designed for clarity over noise.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Links</h2>
+      <p><a href="/about">About</a></p>
+      <p><a href="/work">Work</a></p>
+      <p><a href="/products">Products</a></p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    © <span id="y"></span> Benjamin Lewis
+  </footer>
+
+  <script>
