@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body class="tint-work">
   <header class="wrap">
     <nav>
       <a href="/">Home</a>
@@ -15,20 +15,22 @@
       <a href="/about">About</a>
       <a href="/work">Work</a>
       <a href="/products">Products</a>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        Dark mode
+      </button>
     </nav>
   </header>
 
   <main class="wrap">
     <h1>Work</h1>
-    <p class="muted">
-      Clear ways to collaborate, without noise or pressure.
-    </p>
+    <p class="muted">Clear ways to collaborate, without noise or pressure.</p>
 
     <section class="card">
       <h2>What I help with</h2>
       <p>
-        I help individuals and teams reduce complexity, clarify systems, and build practical workflows
-        using modern tools.
+        I help individuals and teams reduce complexity, clarify systems, and build practical workflows using modern
+        tools.
       </p>
     </section>
 
@@ -36,18 +38,16 @@
       <h2>Ways to collaborate</h2>
       <p><strong>Systems translation:</strong> turning messy processes into clear, usable structures.</p>
       <p><strong>AI-assisted workflows:</strong> practical automation and decision support.</p>
-      <p><strong>Publishing & integrity:</strong> stable releases, versioning, and trust-first delivery.</p>
+      <p><strong>Publishing &amp; integrity:</strong> stable releases, versioning, and trust-first delivery.</p>
     </section>
-    
-<section class="card">
-  <h2>How to reach me</h2>
-  <p>
-    Email is best:
-    <a href="mailto:benjamin@benjaminlewis.ai">
-      benjamin@benjaminlewis.ai
-    </a>
-  </p>
-</section>
+
+    <section class="card">
+      <h2>How to reach me</h2>
+      <p>
+        Email is best:
+        <a href="mailto:benjamin@benjaminlewis.ai">benjamin@benjaminlewis.ai</a>
+      </p>
+    </section>
   </main>
 
   <footer class="wrap">
@@ -55,7 +55,37 @@
   </footer>
 
   <script>
+    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    // Dark mode toggle (persists via localStorage)
+    (function () {
+      const STORAGE_KEY = 'theme';
+      const btn = document.querySelector('.theme-toggle');
+
+      function applyTheme(theme) {
+        document.documentElement.classList.toggle('theme-dark', theme === 'dark');
+        if (btn) btn.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+      }
+
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const systemPrefersDark =
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      applyTheme(saved ? saved : (systemPrefersDark ? 'dark' : 'light'));
+
+      if (btn) {
+        btn.addEventListener('click', function () {
+          const isDark = document.documentElement.classList.contains('theme-dark');
+          const next = isDark ? 'light' : 'dark';
+          localStorage.setItem(STORAGE_KEY, next);
+          applyTheme(next);
+        });
+      }
+    })();
   </script>
 </body>
 </html>
