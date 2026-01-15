@@ -68,7 +68,7 @@
     window.matchMedia &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  const initial = saved ? saved : (systemPrefersDark ? "dark" : "light");
+  const initial = saved ? saved : "light";
   applyTheme(initial);
 
   if (btn) {
