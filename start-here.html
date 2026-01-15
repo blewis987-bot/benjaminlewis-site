@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body class="tint-start">
   <header class="wrap">
     <nav>
       <a href="/">Home</a>
@@ -15,6 +15,10 @@
       <a href="/about">About</a>
       <a href="/work">Work</a>
       <a href="/products">Products</a>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        Dark mode
+      </button>
     </nav>
   </header>
 
@@ -25,27 +29,28 @@
     </p>
 
     <section class="card">
-      <h2>What this site is</h2>
+      <h2>Who this site is for</h2>
       <p>
-        This is a small, stable home for my writing and practical tools, built to reduce noise and increase clarity.
+        This site is for people navigating modern work, hiring systems, or digital complexity
+        who want clarity without hype, pressure, or noise.
       </p>
     </section>
 
     <section class="card">
-      <h2>Where to go next</h2>
-      <p><strong>About:</strong> who I am and what I’m building.</p>
-      <p><strong>Work:</strong> ways to collaborate.</p>
-      <p><strong>Products:</strong> tools and releases.</p>
+      <h2>Suggested path</h2>
+      <ol>
+        <li><strong>Start here</strong> (you’re here)</li>
+        <li><a href="/about">About</a> — what I build and why</li>
+        <li><a href="/work">Work</a> — collaboration</li>
+        <li><a href="/products">Products</a> — practical tools</li>
+      </ol>
     </section>
 
     <section class="card">
-      <h2>Recommended path</h2>
-      <p>
-        If you’re exploring, start with <a href="/about">About</a>, then check <a href="/products">Products</a>.
-      </p>
-      <p class="muted">
-        If you’re here for collaboration, go straight to <a href="/work">Work</a>.
-      </p>
+      <h2>If you’re here for a specific reason</h2>
+      <p><strong>Job searching or hiring confusion:</strong> visit <a href="/products">Products</a>.</p>
+      <p><strong>Exploring collaboration or consulting:</strong> visit <a href="/work">Work</a>.</p>
+      <p><strong>Just curious who’s behind this:</strong> visit <a href="/about">About</a>.</p>
     </section>
   </main>
 
@@ -54,7 +59,38 @@
   </footer>
 
   <script>
+    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    // Dark mode toggle (persists via localStorage)
+    (function () {
+      const STORAGE_KEY = 'theme';
+      const btn = document.querySelector('.theme-toggle');
+
+      function applyTheme(theme) {
+        document.documentElement.classList.toggle('theme-dark', theme === 'dark');
+        if (btn) btn.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+      }
+
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const systemPrefersDark =
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      applyTheme(saved ? saved : (systemPrefersDark ? 'dark' : 'light'));
+
+      if (btn) {
+        btn.addEventListener('click', function () {
+          const isDark = document.documentElement.classList.contains('theme-dark');
+          const next = isDark ? 'light' : 'dark';
+          localStorage.setItem(STORAGE_KEY, next);
+          applyTheme(next);
+        });
+      }
+    })();
   </script>
 </body>
 </html>
+
