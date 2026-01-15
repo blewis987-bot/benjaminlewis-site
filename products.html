@@ -94,7 +94,7 @@
         window.matchMedia &&
         window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-      applyTheme(saved ? saved : (systemPrefersDark ? 'dark' : 'light'));
+      applyTheme(saved ? saved : 'light');
 
       if (btn) {
         btn.addEventListener('click', function () {
