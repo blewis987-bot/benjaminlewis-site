@@ -1,15 +1,37 @@
 :root{
   --max: 860px;
+
+  /* Light theme (default) */
+  --bg: #ffffff;
+  --surface: rgba(255, 255, 255, 0.96);
   --text: #111;
   --muted: #555;
   --line: #e9e9e9;
+  --shadow: rgba(0, 0, 0, 0.06);
 
-  /* page tints */
+  /* page tints (light) */
   --tint-home: #f7f9fb;
   --tint-start: #f9faf8;
   --tint-about: #faf7f9;
   --tint-work: #f6f8f7;
   --tint-products: #f8f7fa;
+}
+
+/* Dark theme overrides */
+.theme-dark{
+  --bg: #0b0d12;
+  --surface: rgba(18, 21, 30, 0.92);
+  --text: #f2f4f8;
+  --muted: #b2b8c6;
+  --line: rgba(255, 255, 255, 0.10);
+  --shadow: rgba(0, 0, 0, 0.45);
+
+  /* page tints (dark) */
+  --tint-home: #0f141c;
+  --tint-start: #101a16;
+  --tint-about: #16111a;
+  --tint-work: #101519;
+  --tint-products: #12111a;
 }
 
 *{ box-sizing:border-box; }
@@ -22,28 +44,28 @@ html, body{
 
 body{
   font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:#ffffff;
+  background: var(--bg);
 }
 
 /* Page-level background tints */
 .page-home{
-  background: linear-gradient(180deg, var(--tint-home), #ffffff 40%);
+  background: linear-gradient(180deg, var(--tint-home), var(--bg) 40%);
 }
 
 .page-start{
-  background: linear-gradient(180deg, var(--tint-start), #ffffff 40%);
+  background: linear-gradient(180deg, var(--tint-start), var(--bg) 40%);
 }
 
 .page-about{
-  background: linear-gradient(180deg, var(--tint-about), #ffffff 40%);
+  background: linear-gradient(180deg, var(--tint-about), var(--bg) 40%);
 }
 
 .page-work{
-  background: linear-gradient(180deg, var(--tint-work), #ffffff 40%);
+  background: linear-gradient(180deg, var(--tint-work), var(--bg) 40%);
 }
 
 .page-products{
-  background: linear-gradient(180deg, var(--tint-products), #ffffff 40%);
+  background: linear-gradient(180deg, var(--tint-products), var(--bg) 40%);
 }
 
 .wrap{
@@ -61,6 +83,7 @@ nav{
   flex-wrap:wrap;
   gap:12px;
   padding:14px 0;
+  align-items:center;
 }
 
 nav a{
@@ -70,6 +93,23 @@ nav a{
   border:1px solid var(--line);
   border-radius:10px;
   background: rgba(255, 255, 255, 0.65);
+}
+
+/* Make nav button match the links */
+.theme-toggle{
+  color:var(--text);
+  padding:6px 10px;
+  border:1px solid var(--line);
+  border-radius:10px;
+  background: rgba(255, 255, 255, 0.65);
+  cursor:pointer;
+  font: inherit;
+}
+
+/* In dark mode, avoid “white pills” */
+.theme-dark nav a,
+.theme-dark .theme-toggle{
+  background: rgba(255, 255, 255, 0.06);
 }
 
 h1{
@@ -93,27 +133,31 @@ p{
 
 /* Cards */
 .card{
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--surface);
   border:1px solid var(--line);
   border-radius:14px;
   padding:14px;
   margin:12px 0;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 14px var(--shadow);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 /* Desktop-only hover */
 @media (hover: hover) and (pointer: fine){
+  nav a:hover,
+  .theme-toggle:hover{
+    background: rgba(0, 0, 0, 0.04);
+  }
 
-  nav a:hover{
-    background:#f7f7f7;
+  .theme-dark nav a:hover,
+  .theme-dark .theme-toggle:hover{
+    background: rgba(255, 255, 255, 0.10);
   }
 
   .card:hover{
     transform: translateY(-1px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 18px var(--shadow);
   }
-
 }
 
 footer{
