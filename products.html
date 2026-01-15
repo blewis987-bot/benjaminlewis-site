@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/style.css">
 </head>
 
-<body>
+<body class="tint-products">
   <header class="wrap">
     <nav>
       <a href="/">Home</a>
@@ -15,6 +15,10 @@
       <a href="/about">About</a>
       <a href="/work">Work</a>
       <a href="/products">Products</a>
+
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+        Dark mode
+      </button>
     </nav>
   </header>
 
@@ -24,39 +28,83 @@
       A small set of practical tools designed to reduce noise and increase clarity.
     </p>
 
-   <section class="card">
-  <h2>Current releases</h2>
+    <section class="card">
+      <h2>Current releases</h2>
 
-  <p><strong>The Ghost Jobs Reality Check</strong><br>
-  A practical guide for spotting ghost jobs, reducing wasted effort, and regaining leverage.</p>
+      <p><strong>The Ghost Jobs Reality Check</strong><br>
+      A practical guide for spotting ghost jobs, reducing wasted effort, and regaining leverage.</p>
 
-  <p><strong>AI-Guided Resume &amp; Cover Letter Reset</strong><br>
-  Calm, structured prompts for creating strong application materials without fluff.</p>
+      <p><strong>AI-Guided Resume &amp; Cover Letter Reset</strong><br>
+      Calm, structured prompts for creating strong application materials without fluff.</p>
 
-  <p><strong>Job Offer Reality Check</strong><br>
-  A quick way to detect low-signal job offers and common scam patterns.</p>
+      <p><strong>Job Offer Reality Check</strong><br>
+      A quick way to detect low-signal job offers and common scam patterns.</p>
 
-  <p><strong>HR Beast Retirement Cards</strong><br>
-  A printable card set for corporate humor, relief, and light-hearted catharsis.</p>
+      <p><strong>HR Beast Retirement Cards</strong><br>
+      A printable card set for corporate humor, relief, and light-hearted catharsis.</p>
 
-  <p><strong>The Nine Dragons, Sovereign Operating System (Tier 1)</strong><br>
-  A foundational operating system for clarity, momentum, and practical AI-supported execution.</p>
-</section>
+      <p><strong>The Nine Dragons, Sovereign Operating System (Tier 1)</strong><br>
+      A foundational operating system for clarity, momentum, and practical AI-supported execution.</p>
+    </section>
 
     <section class="card">
       <h2>Store</h2>
       <p>
-        Visit the store: <a href="https://benjamin-lewis-2.myshopify.com/">Shopify storefront</a>
+        Visit the store:
+        <a href="https://benjamin-lewis-2.myshopify.com/" target="_blank" rel="noopener noreferrer">
+          Shopify storefront
+        </a>
       </p>
-   <p>
-  Purchases are completed securely via my Shopify store. Files are delivered instantly after checkout.
-</p>
+      <p>
+        Purchases are completed securely via my Shopify store. Files are delivered instantly after checkout.
+      </p>
     </section>
 
     <section class="card">
-  <h2>What to expect</h2>
-  <p>
-    I prefer stable, low-noise releases. Each product is designed to be straightforward to use,
-    with clear instructions and minimal friction.
-  </p>
-</section>
+      <h2>What to expect</h2>
+      <p>
+        I prefer stable, low-noise releases. Each product is designed to be straightforward to use,
+        with clear instructions and minimal friction.
+      </p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    © <span id="y"></span> Benjamin Lewis
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    // Dark mode toggle (persists via localStorage)
+    (function () {
+      const STORAGE_KEY = 'theme';
+      const btn = document.querySelector('.theme-toggle');
+
+      function applyTheme(theme) {
+        document.documentElement.classList.toggle('theme-dark', theme === 'dark');
+        if (btn) btn.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+      }
+
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const systemPrefersDark =
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      applyTheme(saved ? saved : (systemPrefersDark ? 'dark' : 'light'));
+
+      if (btn) {
+        btn.addEventListener('click', function () {
+          const isDark = document.documentElement.classList.contains('theme-dark');
+          const next = isDark ? 'light' : 'dark';
+          localStorage.setItem(STORAGE_KEY, next);
+          applyTheme(next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
