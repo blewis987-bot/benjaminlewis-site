@@ -18,7 +18,7 @@
 }
 
 /* Dark theme overrides */
-.theme-dark{
+.theme-dark {
   --bg: #0b0d12;
   --surface: rgba(18, 21, 30, 0.92);
   --text: #f2f4f8;
