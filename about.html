@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Benjamin Lewis</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <header class="wrap">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/start-here">Start here</a>
+      <a href="/about">About</a>
+      <a href="/work">Work</a>
+      <a href="/products">Products</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <h1>About</h1>
+    <p class="muted">
+      A short snapshot of who I am and what I build.
+    </p>
+
+    <section class="card">
+      <h2>What I do</h2>
+      <p>
+        I build practical, trust-first tools for navigating modern work and digital complexity.
+        My focus is clarity, stable publishing, and systems that reduce noise.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>What I’m building</h2>
+      <p>
+        A small library of writing and tools that help people see reality more clearly, make better decisions,
+        and operate with more agency.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>How to use this site</h2>
+      <p>
+        If you’re new here, start with <a href="/start-here">Start here</a>.
+        If you want to collaborate, go to <a href="/work">Work</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    © <span id="y"></span> Benjamin Lewis
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
