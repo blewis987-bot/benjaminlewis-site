@@ -15,6 +15,9 @@
       <a href="/about">About</a>
       <a href="/work">Work</a>
       <a href="/products">Products</a>
+      <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+  Dark mode
+</button>
     </nav>
   </header>
 
@@ -56,5 +59,32 @@
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
+  <script>
+  (function () {
+    const STORAGE_KEY = "theme";
+    const btn = document.querySelector(".theme-toggle");
+
+    function applyTheme(theme) {
+      document.documentElement.classList.toggle("theme-dark", theme === "dark");
+      if (btn) btn.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+    }
+
+    // Pick initial theme: saved choice > system preference
+    const saved = localStorage.getItem(STORAGE_KEY);
+    const systemPrefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initial = saved ? saved : (systemPrefersDark ? "dark" : "light");
+    applyTheme(initial);
+
+    if (btn) {
+      btn.addEventListener("click", function () {
+        const isDark = document.documentElement.classList.contains("theme-dark");
+        const next = isDark ? "light" : "dark";
+        localStorage.setItem(STORAGE_KEY, next);
+        applyTheme(next);
+      });
+    }
+  })();
+</script>
+
 </body>
 </html>
