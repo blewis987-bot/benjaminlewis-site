@@ -170,13 +170,18 @@ footer{
 /* Dark mode link visibility fix */
 
 .theme-dark a {
-  color: #6ab8ff;
+  color: #4fc3ff;                 /* brighter blue */
+  font-weight: 500;               /* slight emphasis */
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-decoration-thickness: 2px; /* thicker underline */
+  text-underline-offset: 4px;
+  text-shadow: 0 0 6px rgba(79, 195, 255, 0.35);
 }
 
 .theme-dark a:hover,
 .theme-dark a:focus {
-  color: #9fd2ff;
+  color: #9fdcff;
+  text-shadow: 0 0 10px rgba(159, 220, 255, 0.6);
 }
+
 
