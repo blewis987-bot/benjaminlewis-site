@@ -167,3 +167,16 @@ footer{
   color:var(--muted);
   font-size:14px;
 }
+/* Dark mode link visibility fix */
+
+.theme-dark a {
+  color: #6ab8ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.theme-dark a:hover,
+.theme-dark a:focus {
+  color: #9fd2ff;
+}
+
