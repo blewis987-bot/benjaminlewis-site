@@ -55,4 +55,30 @@
 </body>
 </html>
 
+<script>
+(function () {
+  const btn = document.querySelector(".theme-toggle");
+  if (!btn) return;
+
+  function apply(theme) {
+    document.body.classList.toggle("dark", theme === "dark");
+    localStorage.setItem("theme", theme);
+    btn.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+  }
+
+  const saved = localStorage.getItem("theme");
+  const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  apply(saved ? saved : (systemDark ? "dark" : "light"));
+
+  // Capture phase so this runs before anything else
+  btn.addEventListener("click", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const isDark = document.body.classList.contains("dark");
+    apply(isDark ? "light" : "dark");
+  }, true);
+})();
+</script>
 
