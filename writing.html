@@ -1,86 +1,62 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Writing — Benjamin Lewis</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <!-- NAV (copy the same nav you use on other pages) -->
-  <header class="site-header">
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="start-here.html">Start here</a>
-      <a href="about.html">About</a>
-      <a href="work.html">Work</a>
-      <a href="writing.html" aria-current="page">Writing</a>
-      <a href="products.html">Products</a>
-      <button class="theme-toggle" type="button" aria-label="Toggle theme">Light mode</button>
-    </nav>
-  </header>
+<body class="tint-work">
 
-  <main class="container">
+<header class="wrap">
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="start-here.html">Start here</a>
+    <a href="about.html">About</a>
+    <a href="work.html">Work</a>
+    <a href="writing.html">Writing</a>
+    <a href="products.html">Products</a>
+    <button id="theme-toggle">Light mode</button>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="card">
     <h1>Writing</h1>
-    <p class="subtitle">Short notes on clarity, systems, and trust-first work.</p>
+    <p>Short notes on clarity, systems, and trust-first work.</p>
+  </section>
 
-    <!-- Card 1: What to expect -->
-    <section class="card">
-      <h2>What you’ll find here</h2>
-      <p>
-        These are short, practical pieces. No hype, no funnels, no weekly posting schedule,
-        just clear thinking you can use.
-      </p>
-      <ul>
-        <li><strong>Clarity:</strong> turning complexity into something usable.</li>
-        <li><strong>Systems:</strong> workflows that hold up under real life.</li>
-        <li><strong>Trust:</strong> honest constraints, versioned delivery, and integrity by design.</li>
-      </ul>
-    </section>
+  <section class="card">
+    <h2>Featured</h2>
 
-    <!-- Card 2: Featured writing list -->
-    <section class="card">
-      <h2>Featured</h2>
+    <p>
+      <a href="writing-clarity-compounds.html">Clarity Compounds</a><br>
+      A short argument for why clear thinking beats more tools, more hustle, and more noise.
+    </p>
 
-      <!-- Entry 1 -->
-      <article class="writing-item">
-        <h3><a href="writing-clarity-compounds.html">Clarity Compounds</a></h3>
-        <p class="muted">A short argument for why clear thinking beats more tools, more hustle, and more noise.</p>
-      </article>
+    <p>
+      <a href="writing-trust-is-a-feature.html">Trust is a Feature</a><br>
+      What trust-first delivery looks like, and why it matters.
+    </p>
 
-      <hr class="divider" />
+    <p>
+      <a href="writing-where-systems-break.html">Where Systems Break</a><br>
+      A simple map of failure points in modern work.
+    </p>
+  </section>
 
-      <!-- Entry 2 -->
-      <article class="writing-item">
-        <h3><a href="writing-trust-is-a-feature.html">Trust is a Feature</a></h3>
-        <p class="muted">What trust-first delivery looks like, and why it matters more as systems get more complex.</p>
-      </article>
+  <section class="card">
+    <p>Email is best: <a href="mailto:benjamin@benjaminlewis.ai">benjamin@benjaminlewis.ai</a></p>
+  </section>
 
-      <hr class="divider" />
+</main>
 
-      <!-- Entry 3 -->
-      <article class="writing-item">
-        <h3><a href="writing-where-systems-break.html">Where Systems Break</a></h3>
-        <p class="muted">A simple map of failure points that show up in modern work, hiring, and operations.</p>
-      </article>
+<footer class="wrap">
+  <p>© 2026 Benjamin Lewis</p>
+</footer>
 
-      <p class="muted" style="margin-top: 14px;">
-        (These pages can start as placeholders. You can add the essays later.)
-      </p>
-    </section>
-
-    <!-- Card 3: Contact -->
-    <section class="card">
-      <h2>Want to discuss something here?</h2>
-      <p>Email is best: <a href="mailto:benjamin@benjaminlewis.ai">benjamin@benjaminlewis.ai</a></p>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>© 2026 Benjamin Lewis</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
